@@ -1,5 +1,6 @@
 library(tidyr)
 library(stringr)
+library(dplyr)
 setwd("C:/codeR")
 df <- read.csv("All_GPUs.csv")
 View(df)
@@ -78,3 +79,13 @@ hist(dfNums$df.Memory_Speed_Nums, xlab = df$Memory_Speed_Units, main = 'Histogra
 hist(dfNums$df.Pixel_Rate_Nums, xlab = df$Pixel_Rate_Units, main = 'Histogram of Pixel Rate')
 hist(dfNums$df.Texture_Rate_Nums, xlab = df$Texture_Rate_Units, main = 'Histogram of Texture Rate')
 hist(dfNums$df.Release_Date_Nums, xlab = 'Days', main = 'Release Date')
+
+boxplot(dfNums$df.Max_Power_Nums, xlab = df$Max_Power_Units, main = 'Boxplot of Max Power')
+boxplot(dfNums$df.Memory_Bandwidth_Nums, xlab = df$Memory_Bandwidth_Units, main = 'Boxplot of Memory Bandwidth')
+boxplot(dfNums$df.Memory_Speed_Nums, xlab = df$Memory_Speed_Units, main = 'Boxplot of Memory Speed')
+boxplot(dfNums$df.Pixel_Rate_Nums, xlab = df$Pixel_Rate_Units, main = 'Boxplot of Pixel Rate')
+boxplot(dfNums$df.Texture_Rate_Nums, xlab = df$Texture_Rate_Units, main = 'Boxplot of Texture Rate')
+boxplot(dfNums$df.Release_Date_Nums, xlab = 'Days', main = 'Boxplot of Release Date')
+
+pairs(dfNums, main = 'Scatterplot of data')
+print(cor(dfNums))
